@@ -4,25 +4,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Random
-    
-    @Model.Movie.Name</h2>
-<h5>
-    @if (Model.Customers.Count==0)
-    {
-        <p>No one has rent this movie.</p>
-    }
-    else
-    {
-        <ul>
+<h2>
+    Random
+
+    @Model.Movie.Name
+</h2>
+
+
+@{
+    var className = Model.Customers.Count >= 2 ? "popular" : null;
+}
+
+<h5 class="@className">@Model.Movie.Name</h5>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rent this movie.</p>
+}
+else
+{
+    <ul>
         @foreach (var customer in Model.Customers)
-         {
+        {
             <li>@customer.Name</li>
-          }
+        }
 
-        </ul>
+    </ul>
 
-    }
-    
-    </h5>
+}
 
