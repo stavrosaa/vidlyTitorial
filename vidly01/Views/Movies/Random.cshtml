@@ -7,26 +7,5 @@
 <h2>Random
     
     @Model.Movie.Name</h2>
-<h5>
-
-
-    @if (Model.Customers.Count == 0)
-    {<p>No one has movie before.</p>}
-    else
-    {
-        <ul>
-
-            @foreach (var customer in Model.Customers)
-            {
-
-                <li>@customer.Name</li>
-
-            }
-
-        </ul>
-    }
-
-
-
-</h5>
+<h5>@Model.Customers</h5>
 
